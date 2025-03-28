@@ -15197,6 +15197,7 @@ span.transparent-button:hover i {
 @media only screen and (max-width: 767px) {
   .rbt-card.variation-03.style_2 {
     padding: 15px;
+    padding-top: 35px;
   }
 }
 .rbt-card.variation-03.style_2::after {
@@ -30940,7 +30941,7 @@ blockquote.has-text-align-right cite,
 }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .rbt-banner-22 .inner .content .title {
-    font-size: 60px;
+    font-size: 54px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
