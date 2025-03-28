@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="FCQMGYLS" defer></script> <!-- / Fathom -->
+    <link rel="stylesheet" href="intlTelInput.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Variables to track states
+            let hasScrolled = false;
+            let hasTrackedEarlyScroll = false;
+            let hasTrackedLateScroll = false;
+            let hasTrackedNoScroll = false;
+
+            // Set up scroll detection
+            window.addEventListener('scroll', function () {
+                if (!hasScrolled) {
+                    hasScrolled = true;
+                    console.log("First scroll detected");
+
+                    // Check if scroll happened within first 30 seconds
+                    if (!hasTrackedEarlyScroll && timeElapsed < 30000) {
+                        console.log("Tracking early scroll event (within 30 seconds)");
+                        fathom.trackEvent('early scroll');
+                        hasTrackedEarlyScroll = true;
+                    } else if (!hasTrackedLateScroll && timeElapsed >= 30000) {
+                        console.log("Tracking late scroll event (after 30 seconds)");
+                        fathom.trackEvent('late scroll');
+                        hasTrackedLateScroll = true;
+                    }
+                }
+            }, { passive: true });
+
+            // Track time on page
+            const startTime = new Date().getTime();
+            let timeElapsed = 0;
+
+            // Update time elapsed every second
+            const timeInterval = setInterval(function () {
+                timeElapsed = new Date().getTime() - startTime;
+
+                // If 30 seconds have passed and user has scrolled but we haven't tracked it yet
+                if (timeElapsed >= 30000 && hasScrolled && !hasTrackedEarlyScroll && !hasTrackedLateScroll) {
+                    console.log("Tracking late scroll event (after 30 seconds)");
+                    fathom.trackEvent('late scroll');
+                    hasTrackedLateScroll = true;
+                }
+            }, 1000);
+
+            // Track exit without scroll
+            window.addEventListener('beforeunload', function () {
+                if (!hasScrolled && !hasTrackedNoScroll) {
+                    console.log("Tracking no scroll event (user leaving without scrolling)");
+                    fathom.trackEvent('no scroll');
+                    hasTrackedNoScroll = true;
+                }
+
+                // Clean up interval
+                clearInterval(timeInterval);
+            });
+
+            // Also track visibility change (user switching tabs or minimizing browser)
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'hidden' && !hasScrolled && !hasTrackedNoScroll) {
+                    console.log("Tracking no scroll event (visibility changed without scrolling)");
+                    fathom.trackEvent('no scroll');
+                    hasTrackedNoScroll = true;
+                }
+            });
+
+            console.log("Scroll tracking initialized");
+        });
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>#1 Volumen-Trading-Ausbildung - Mr.Volume Academy</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/plugins/sal.css">
+    <link rel="stylesheet" href="assets/css/plugins/feather.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/euclid-circulara.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.css">
+    <link rel="stylesheet" href="assets/css/plugins/odometer.css">
+    <link rel="stylesheet" href="assets/css/plugins/animation.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnigy-popup.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/plyr.css">
+    <link rel="stylesheet" href="assets/css/plugins/jodit.min.css">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .rbt-card-img img {
+            border-radius: 8px;
+            width: 24%;
+        }
+
+        .rbt-card .rbt-card-img {
+            top: -20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneInputModal = document.getElementById('phoneInputModal');
+            if (phoneInputModal) {
+                window.intlTelInput(phoneInputModal, {
+                    initialCountry: "auto",
+                    geoIpLookup: function (callback) {
+                        fetch('https://ipinfo.io/json')
+                            .then(response => response.json())
+                            .then(data => callback(data.country))
+                            .catch(() => callback('us'));
+                    },
+
+                });
+            }
+        });
+    </script>
+</head>
+
+<body class="rbt-header-sticky">
+
+    <div id="my_switcher" class="my_switcher">
+        <ul>
+            <li>
+                <a href="javascript: void(0);" data-theme="light" class="setColor light">
+                    <img src="assets/images/about/sun-01.svg" alt="Sun images"><span title="Light Mode"> Light</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="dark" class="setColor dark" id="darkModeToggle">
+                    <img src="assets/images/about/vector.svg" alt="Vector Images"><span title="Dark Mode"> Dark</span>
+                </a>
+                <script>
+                    window.addEventListener('load', function () {
+                        document.getElementById('darkModeToggle').click();
+                    });
+                </script>
+            </li>
+        </ul>
+    </div>
+    <!-- Start Header Area -->
+    <header class="rbt-header rbt-header-default">
+        <div class="rbt-sticky-placeholder"></div>
+
+        <div class="rbt-header-wrapper shadow-none bg-color-white backdrop-blur-sm header-sticky"
+            style="background: #ffffffde;">
+            <div class="container">
+                <div class="mainbar-row rbt-navigation-center align-items-center">
+                    <div class="header-left">
+                        <div class="logo logo-dark">
+                            <a href="/">
+                                <img src="/img/logo1.png" alt="Education Logo Images">
+                            </a>
+                        </div>
+
+                        <div class="logo d-none logo-light">
+                            <a href="/">
+                                <img src="/img/logo1.png" alt="Education Logo Images">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rbt-main-navigation d-none d-xl-block">
+                        <nav class="mainmenu-nav">
+                            <ul class="mainmenu">
+                                <li class="with-megamenu has-menu-child-item position-static">
+                                    <br><br><br><br>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="header-right">
+                        <div class="rbt-btn-wrapper d-none d-xl-block">
+                            <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
+                                href="javascript:void(0);" onclick="scrollToForm()">
+                                <span data-text="Werden Sie noch heute Mitglied">Werden Sie noch heute Mitglied</span>
+                            </a>
+                        </div>
+
+
+                        <div class="mobile-menu-bar d-block d-xl-none">
+                            <div class="hamberger">
+                                <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
+                                    href="javascript:void(0);" onclick="scrollToForm()">
+                                    <span data-text="Werden Sie noch heute Mitglied">Werden Sie noch heute
+                                        Mitglied</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </header>
+    <!-- Mobile Menu Section -->
+    <div class="popup-mobile-menu">
+        <div class="inner-wrapper">
+            <div class="inner-top">
+                <div class="content">
+                    <div class="logo">
+                        <div class="logo logo-dark">
+                            <a href="/">
+                                <img src="assets/images/logo/logo.png" alt="Education Logo Images">
+                            </a>
+                        </div>
+
+                        <div class="logo d-none logo-light">
+                            <a href="/">
+                                <img src="assets/images/dark/logo/logo-light.png" alt="Education Logo Images">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rbt-btn-close">
+                        <button class="close-button rbt-round-btn"><i class="feather-x"></i></button>
+                    </div>
+                </div>
+                <p class="description">Lerne durch das stattlich anerkannte Ausbildungsprogramm, wie du an der Börse
+                    sicher und dauerhaft profitabel tradest ...</p>
+                <ul class="navbar-top-left rbt-information-list justify-content-start">
+                    <li>
+                        <a href="mailto:info@trader-day.com"><i class="feather-mail"></i>info@trader-day.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <nav class="mainmenu-nav">
+                <ul class="mainmenu">
+                    <li class="with-megamenu has-menu-child-item position-static">
+                        <a href="/">Home </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-bottom">
+                <div class="rbt-btn-wrapper mb--20">
+                    <a class="rbt-btn btn-border-gradient radius-round btn-sm hover-transform-none w-100 justify-content-center text-center"
+                        href="javascript:void(0);" onclick="scrollToForm()">
+                        <span>Enroll Now</span>
+                    </a>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <main class="rbt-main-wrapper">
+        <!-- Start Banner Area -->
+        <div class="rbt-banner-area rbt-banner-22" id="form">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="inner">
+                        <div class="shape-wrapper">
+                            <div class="shape-1">
+                                <img src="assets/images/shape/w-hello.png" alt="Banner Shape">
+                            </div>
+                            <div class="shape-2 scene">
+                                <span data-depth="1">
+                                    <img src="assets/images/shape/w-color-elemt.png" alt="Banner Shape">
+                                </span>
+                            </div>
+                            <div class="shape-3 scene">
+                                <span data-depth="1">
+                                    <img src="assets/images/shape/w-tools-elemt.png" alt="Banner Shape">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="inner">
+
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="offset-lg-1  col-lg-6 col-md-12 mt-4 mt-lg-0 content "
+                                        style="margin: 0;">
+                                        <h1 class="title">Werde<br><span class="theme-gradient cf_boundary">Trader Day
+                                                <img id="cursorFollower" class="cursorFollower"
+                                                    src="assets/images/shape/w-cursor.png"
+                                                    alt="Cursor Icon"></span><br>Experte in nur 6 Monaten!</h1>
+                                        <p class="description">Entdecke das staatlich geförderte Ausbildungsprogramm,
+                                            das bislang nur den Wohlhabenden vorbehalten war – jetzt für jeden Deutschen
+                                            zum unschlagbaren Preis von <b>€250</b>. Lerne von den renommiertesten
+                                            deutschen
+                                            Finanzexperten: Dirk Müller („Mr. DAX“), Gerald Hörhan („Investment Punk“),
+                                            Gerd Kommer, Bodo Schäfer, Marc Friedrich, Rainer Zitelmann, Jochen Wermuth
+                                            und Serdar Karaka – deinem persönlichen Top-Trading-Experten.</p>
+                                        <p class="text-center"><b>Fülle das Formular aus, um eine kostenlose Beratung zu
+                                                erhalten und herauszufinden, welches unserer Programme am besten zu dir
+                                                passt.</b></p>
+                                        <div class="students">
+                                            <div class="profile-share">
+                                                <a href="#" class="avatar" data-tooltip="Mark Jordan" tabindex="0">
+                                                    <img src="assets/images/shape/art-stu-1.png" alt="education">
+                                                </a>
+                                                <a href="#" class="avatar" data-tooltip="Jordan" tabindex="0">
+                                                    <img src="assets/images/shape/art-stu-3.png" alt="education">
+                                                </a>
+                                                <a href="#" class="avatar" data-tooltip="Ava Miller" tabindex="0">
+                                                    <img src="assets/images/shape/art-stu-2.png" alt="education">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h6 class="number">Funktioniert bereits erfolgreich bei über</h6>
+                                                <p class="number-title">400 Absolventen und Teilnehmer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right side form -->
+                                    <div class="col-lg-5 col-md-12 mt-4 mt-lg-0">
+                                        <div class="card shadow-lg border-0">
+                                            <div class="card-body p-4"
+                                                style="height: 450px;display: flex;justify-content: center;align-items: center;">
+                                                <form class="rf-form js-rf-form leadform" id="leadform1"
+                                                    action="api.php" method="POST">
+
+
+
+                                                    <div class="rf-form__header mb-4">
+                                                        <h4 class="text-center text-black fw-bold" style="color: #fff;">
+                                                            Kostenlose, unverbindliche Beratung</h4>
+                                                    </div>
+
+                                                    <div class="rf-form__content">
+                                                        <div class="rf-form-field mb-3">
+                                                            <input class="rf-form-input form-control py-3" type="text"
+                                                                name="fname" placeholder="Ihren Vornamen"
+                                                                required="required" autocomplete="given-name" value=""
+                                                                style="background-color: #1d2333; border: none; color: white; border-radius: 4px;">
+                                                        </div>
+                                                        <div class="rf-form-field mb-3">
+                                                            <input class="rf-form-input form-control py-3" type="text"
+                                                                name="lname" placeholder="Ihren Nachnamen"
+                                                                required="required" autocomplete="family-name" value=""
+                                                                style="background-color: #1d2333; border: none; color: white; border-radius: 4px;">
+                                                        </div>
+                                                        <div class="rf-form-field mb-3">
+                                                            <input class="rf-form-input form-control py-3" type="email"
+                                                                name="email" placeholder="Ihre E-Mail-Adresse"
+                                                                required="required" autocomplete="email" value=""
+                                                                style="background-color: #1d2333; border: none; color: white; border-radius: 4px;">
+                                                        </div>
+                                                        <div class="rf-form-field mb-4 position-relative">
+
+
+                                                            <input class="w-100 rf-form-input form-control py-3"
+                                                                type="tel" name="phone" placeholder="1512 3456789"
+                                                                required="required"
+                                                                style="background-color: #1d2333; border: none; color: white; border-top-left-radius: 0; border-bottom-left-radius: 0;"
+                                                                id="phoneInputModal">
+
+                                                            <span class="error-msg hide"></span>
+                                                        </div>
+
+                                                        <div class="mb-4">
+                                                            <button
+                                                                class="w-100 rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
+                                                                type="submit"
+                                                                style="background-color: #0d6efd; border: none; border-radius: 4px;">
+                                                                Registrieren
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-center">
+                                                            <img src="payment.svg" alt="Payment methods"
+                                                                class="img-fluid" style="max-height: 30px;">
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+
+                                                <style>
+                                                    .iti {
+                                                        width: 100%;
+                                                    }
+
+                                                    .rf-form input::placeholder {
+                                                        color: #9aa0ac;
+                                                    }
+
+                                                    .rf-form .form-control:focus {
+                                                        background-color: #1d2333;
+                                                        color: white;
+                                                        border-color: #0d6efd;
+                                                        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+                                                    }
+
+                                                    .rf-form .btn-primary:hover {
+                                                        background-color: #0b5ed7;
+                                                    }
+                                                </style>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="banner">
+                        <div class="shape-shadow">
+                            <img src="assets/images/shape/w-shadow.png" alt="Banner Shadow">
+                        </div>
+                        <div class="browser">
+                            <div class="browser-img">
+                                <img src="/img/w-banner.png" alt="Banner Brwoser">
+                            </div>
+                            <video id="videoElement" autoplay muted loop>
+                                <source src="video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Banner Area -->
+
+        <!-- Start Course Area -->
+        <div class="rbt-course-area rbt-section-gapBottom">
+            <div class="container">
+                <div class="section-title-2 text-center with-shape mb--170 mb_lg--100 mb_md--100 mb_sm--100">
+                    <div class="shape-1" data-parallax='{"x": 0, "y": 130}'>
+                        <img src="assets/images/shape/wishlist-title-bg-shape.png" alt="Shape">
+                    </div>
+                    <h2 class="title">Lerne, wie du als <span class="color-body">Quereinsteiger</span> in der <span
+                            class="theme-gradient">D-A-CH-Region</span> richtig durchstartest!</h2>
+                    <p class="description">In dieser exklusiven Version des Trader Day Kurses erhältst du weit mehr als
+                        nur Basiswissen. Unser ultrakompaktes, intensives Programm vermittelt dir geheime
+                        Insider-Techniken, die sonst nur den Top-Investoren vorbehalten waren – und das ganz praxisnah.
+                        Ob du zügig voranschreitest oder in deinem eigenen Tempo lernst, der Erfolg liegt in deinen
+                        Händen.</p>
+                </div>
+                <div class="row g-5">
+
+                    <!-- Start Single Card  -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-12" data-sal-delay="0" data-sal="slide-up"
+                        data-sal-duration="800">
+                        <div class="rbt-card variation-03 style_2">
+                            <div class="rbt-card-img">
+                                <img src="/img/Persönliche-Betreuung_cr.png" alt="Card image" class="rounded-5">
+                            </div>
+                            <div class="rbt-card-body">
+                                <h5 class="rbt-card-title">Persönliche Betreuung</h5>
+                                <p class="rbt-card-text">Erlebe interaktive Live-Sessions mit Serdar Karaka, in denen du
+                                    all deine Fragen direkt beantwortet bekommst. Unsere Experten – von Dirk Müller bis
+                                    Jochen Wermuth – stehen dir mit maßgeschneiderten Tipps zur Seite, um deinen
+                                    Lernfortschritt kontinuierlich zu optimieren.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Card  -->
+
+                    <!-- Start Single Card  -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-12" data-sal-delay="0" data-sal="slide-up"
+                        data-sal-duration="800">
+                        <div class="rbt-card variation-03 style_2">
+                            <div class="rbt-card-img">
+                                <img class="" src="/img/Erlerne-die-Geheimstrategien_cr.png" alt="Card image">
+                            </div>
+                            <div class="rbt-card-body">
+                                <h5 class="rbt-card-title">Erlerne die Geheimstrategien</h5>
+                                <p class="rbt-card-text">Schritt für Schritt wirst du in Techniken eingeführt, mit denen
+                                    du mit einfachen, aber extrem effektiven Methoden konstant profitabel traden kannst.
+                                    Keine langatmige Theorie – nur praxisnahe, sofort umsetzbare Strategien, die den
+                                    Finanzmarkt revolutionieren.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Card  -->
+
+                    <!-- Start Single Card  -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-12" data-sal-delay="100" data-sal="slide-up"
+                        data-sal-duration="800">
+                        <div class="rbt-card variation-03 style_2">
+                            <div class="rbt-card-img">
+                                <img src="/img/Networking-&-exklusive-Kontakte_cr.png" alt="Card image">
+                            </div>
+                            <div class="rbt-card-body">
+                                <h5 class="rbt-card-title">Networking & exklusive Kontakte</h5>
+                                <p class="rbt-card-text">Knüpfe wertvolle Verbindungen zu anderen ambitionierten
+                                    Investoren und führenden Finanzexperten. Unser exklusives Netzwerk öffnet dir Türen
+                                    zu Insider-Informationen und bietet dir den entscheidenden Karriereschub, den du
+                                    suchst.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Card  -->
+
+                    <!-- Start Single Card  -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-12" data-sal-delay="100" data-sal="slide-up"
+                        data-sal-duration="800">
+                        <div class="rbt-card variation-03 style_2">
+                            <div class="rbt-card-img">
+                                <img src="/img/Abschluss-&-Bonus_cr.png" alt="Card image">
+                            </div>
+                            <div class="rbt-card-body">
+                                <h5 class="rbt-card-title">Abschluss & Bonus</h5>
+                                <p class="rbt-card-text">Nach erfolgreichem Abschluss erhältst du dein offizielles
+                                    Trading-Zertifikat sowie die begehrte Trader Day Club Platinum Card – dein Schlüssel
+                                    zu weiteren exklusiven Investmentchancen und einem Netzwerk, das deinen Erfolg
+                                    nachhaltig unterstützt.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Card  -->
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- End Course Area -->
+        <div class="rbt-video-area bg-color-white" id="about">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="video-popup-wrapper">
+                            <img class="w-100 rbt-radius" src="/img/video-06.jpg" alt="Video Images">
+                            <a class="rbt-btn rounded-player popup-video position-to-top rbtplayer"
+                                href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
+                                <span><i class="feather-play"></i></span>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
+                            <div class="section-title text-start">
+                                <h4 class="title">STAATLICH GEFÖRDERT</h4>
+                                <p class="description mt--30"><b>Qualität, der du vertrauen kannst – staatlich
+                                        gefördert!
+                                    </b></p>
+                                <ul class="dashed-list">
+                                    <li><b>Höchste Ansprüche:</b> Jeder Schritt wird sorgfältig geprüft, damit du stets
+                                        topaktuelles Wissen erhältst.</li>
+                                    <li><b>Offizielles Zertifikat:</b> Mit deinem Abschluss gehörst du zu den besten
+                                        Tradern in Deutschland.</li>
+                                    <li><b>Exklusives Insiderwissen:</b> Entdecke geheime Techniken, die den Finanzmarkt
+                                        in den kommenden Jahren dominieren.</li>
+                                    <li><b>Effektives, komprimiertes Wissen:</b> Keine langatmigen Vorträge – nur klare,
+                                        sofort umsetzbare Strategien.</li>
+                                    <li><b>Offizielles Zertifikat & Platinum Card:</b> Nach Abschluss erhältst du dein
+                                        staatlich gefördertes Trading-Zertifikat sowie die exklusive Platinum Card, die
+                                        dir besondere Vergünstigungen bietet.</li>
+                                </ul>
+                                <div class="rbt-feature-wrapper mt--40 d-flex justify-content-start align-items-center">
+                                    <img src="/img/madeingermany.png" alt="" class="img-fluid mx-2"
+                                        style="max-width: 100px;border-radius: 50%;">
+                                    <img src="/img/zfu.png" alt="" class="img-fluid mx-2"
+                                        style="max-width: 100px;border-radius: 50%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rbt-accordion-area accordion-style-1 bg-color-white rbt-section-gapTop">
+            <div class="container">
+                <div class="row mb--60">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <h2 class="title">Was musst du können,<br> um als Trader Day erfolgreich zu werden?</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-7 order-2 order-lg-1">
+                        <p>Egal, ob du als kompletter Quereinsteiger oder mit ersten Investment-Erfahrungen startest –
+                            unser Kurs führt dich Schritt für Schritt in die Geheimnisse des Tradings ein. Mit dem
+                            richtigen Mindset und den besten Techniken wirst du schon bald den Unterschied am Markt
+                            spüren.</p>
+                        <p><b>Unsere Top-Finanzexperten – Dein Wegweiser in die Welt der Investments</b></p>
+                        <p>Stell dir vor, du wirst von den renommiertesten Köpfen der deutschen Finanzwelt unterrichtet:
+                        </p>
+                        <ul class="dashed-list">
+                            <li><b>Dirk Müller („Mr. DAX“):</b> Marktanalyst und Trader mit medienwirksamen Analysen.
+                            </li>
+                            <li><b>Gerald Hörhan („Investment Punk“):</b> Unkonventioneller Unternehmer und Real Estate
+                                Investor, der traditionelle Anlageweisheiten herausfordert.</li>
+                            <li><b>Gerd Kommer:</b> Best-Selling-Autor und Verfechter passiven Investierens.</li>
+                            <li><b>Bodo Schäfer:</b> Deutschlands führender Finanzcoach für persönliches
+                                Vermögenswachstum.</li>
+                            <li><b>Marc Friedrich:</b> Wirtschaftskritiker und Autor, der mit seinen Prognosen Maßstäbe
+                                setzt.</li>
+                            <li><b>Rainer Zitelmann:</b> Investor und Historiker, der langfristige Wertschöpfung
+                                erklärt.</li>
+                            <li><b>Jochen Wermuth:</b> Pionier nachhaltiger Investments mit zukunftsweisenden
+                                Perspektiven.</li>
+                            <li><b>Serdar Karaka:</b> Dein persönlicher Mentor, der dir exklusives Insiderwissen
+                                vermittelt, das den Unterschied macht.</li>
+                        </ul>
+                        <div class="mt--20">
+                            <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0);"
+                                onclick="scrollToForm()">
+                                <span class="icon-reverse-wrapper">
+                                    <span class="btn-text">Kostenlose, unverbindliche Beratung</span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 order-1 order-lg-2">
+                        <!-- slider -->
+                        <div class="swiper se-slider">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img src="./img/about-07.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/1_20250327_133218_0000.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/2_20250327_133218_0001.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/3_20250327_133218_0002.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/4_20250327_133218_0003.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/5_20250327_133218_0004.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/6_20250327_133218_0005.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./img/photo/7_20250327_133218_0006.jpg" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- slider -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rbt-service-area rbt-section-gap">
+            <div class="container">
+                <div class="row mb--60">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <h2 class="title">Was du in der Ausbildung erwarten kannst</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Card Area -->
+                <div class="row row--15 mt_dec--30">
+                    <!-- Start Service Grid  -->
+                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="service-card service-card-6 bg-color bg-card-color-1">
+                            <div class="inner">
+                                <div class="icon">
+                                    <img src="assets/images/shape/service-01.png" alt="Shape Images">
+                                    <img class="opacity_image" src="assets/images/shape/service-01.png"
+                                        alt="Shape Images">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title"><a href="#">Individuelle persönliche Betreuung</a></h6>
+                                    <p class="description">Erlebe mehrmals wöchentlich interaktive Live-Sessions, in
+                                        denen dir Serdar Karaka und unser Expertenteam alle Fragen beantworten – egal,
+                                        ob du Anfänger oder Fortgeschrittener bist.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Grid  -->
+
+                    <!-- Start Service Grid  -->
+                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="service-card service-card-6 bg-color bg-card-color-2">
+                            <div class="inner">
+                                <div class="icon">
+                                    <img src="assets/images/shape/service-04.png" alt="Shape Images">
+                                    <img class="opacity_image" src="assets/images/shape/service-04.png"
+                                        alt="Shape Images">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title"><a href="#">Viral effektive Trading-Strategie</a></h6>
+                                    <p class="description">Bereite dich auf echte Aha-Momente vor! Unser Programm bietet
+                                        simple, aber geniale Techniken, die dein Investment-Verständnis revolutionieren
+                                        und den Markt in den Jahren 2025/2026 dominieren.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Grid  -->
+
+                    <!-- Start Service Grid  -->
+                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                        <div class="service-card service-card-6 bg-color bg-card-color-3">
+                            <div class="inner">
+                                <div class="icon">
+                                    <img src="assets/images/shape/service-03.png" alt="Shape Images">
+                                    <img class="opacity_image" src="assets/images/shape/service-03.png"
+                                        alt="Shape Images">
+                                </div>
+                                <div class="content">
+                                    <h6 class="title"><a href="#">Das richtige Erfolgs-Mindset</a></h6>
+                                    <p class="description">Erfolg beginnt im Kopf! Wir vermitteln dir nicht nur
+                                        Techniken, sondern zeigen dir, wie du dein Mindset schärfst, um auch in
+                                        turbulenten Marktphasen die richtige Entscheidung zu treffen.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Grid  -->
+
+
+                </div>
+                <!-- End Card Area -->
+            </div>
+        </div>
+
+        <div class="rbt-testimonial-area bg-color-white overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center row--30">
+                    <div class="col-lg-6">
+                        <!-- Start Tab Content  -->
+                        <div class="rbt-testimonial-content tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show" id="testimonial-tab1" role="tabpanel"
+                                aria-labelledby="testimonial-tab1-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Ich dachte immer, Investieren sei nur was für die Reichen. Dieser Kurs hat mir
+                                        gezeigt, wie einfach und effektiv Trading sein kann – mein Portfolio wächst
+                                        stetig!"</p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Marco</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="testimonial-tab2" role="tabpanel"
+                                aria-labelledby="testimonial-tab2-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Ich hatte immer gedacht, Investieren sei nur was für die Superreichen. Trader
+                                        Day hat mir gezeigt, dass es auch für normale Deutsche möglich ist, finanziell
+                                        unabhängig zu werden."</p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Claudia</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="testimonial-tab3" role="tabpanel"
+                                aria-labelledby="testimonial-tab3-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Ich hatte das Glück, zu den ersten Testerinnen dieses Kurses zu gehören. Als
+                                        Regierungsangestellte habe ich mittlerweile ein attraktives Angebot erhalten –
+                                        und ich muss sagen, der Kurs hat mein Leben wirklich verändert. Früher dachte
+                                        ich immer, dass ich einfach nicht in reiche Verhältnisse hineingeboren wurde –
+                                        und das war’s. Dabei stellte sich heraus, dass ich nie gelernt hatte, mein Geld
+                                        richtig zu managen."</p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Abi</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="testimonial-tab4" role="tabpanel"
+                                aria-labelledby="testimonial-tab4-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Der Zugang zu einem exklusiven Netzwerk und der direkte Draht zu Top-Experten
+                                        haben mein Leben verändert. Jetzt weiß ich, wie man richtig investiert!"
+                                    </p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Jessica</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="testimonial-tab5" role="tabpanel"
+                                aria-labelledby="testimonial-tab5-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Für mich ist Trader Day wie die Harvard-Schule für Investments. Der Kurs bietet
+                                        nicht nur Wissen, sondern auch wertvolle Kontakte, die mir bereits zum Erfolg
+                                        verholfen haben."</p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Gerda</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="testimonial-tab6" role="tabpanel"
+                                aria-labelledby="testimonial-tab6-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Die persönliche Betreuung hat mir den entscheidenden Durchbruch ermöglicht. Ich
+                                        sammle nun praxisnahe Erfahrungen und fühle mich sicher an der Börse."</p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Stefan</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="testimonial-tab7" role="tabpanel"
+                                aria-labelledby="testimonial-tab7-tab">
+                                <div class="inner">
+                                    <div class="rating mb--30">
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                    </div>
+                                    <p>„Ich war skeptisch, aber dieser Kurs hat meine Erwartungen übertroffen – die
+                                        Strategien sind so effektiv, dass ich schon meine ersten Gewinne realisiert
+                                        habe!
+                                        "</p>
+                                </div>
+                                <div class="author-info">
+                                    <h6><span>Maryam</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Tab Content  -->
+                    </div>
+                    <div class="col-lg-6 mt_md--30 mt_sm--30">
+                        <!-- Start Tab Nav  -->
+                        <ul class="testimonial-thumb-wrapper nav nav-tabs" id="myTab" role="tablist">
+                            <li>
+                                <a class="active" id="testimonial-tab1-tab" data-bs-toggle="tab"
+                                    data-bs-target="#testimonial-tab1" role="tab" aria-controls="testimonial-tab1"
+                                    aria-selected="true">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-1.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a id="testimonial-tab2-tab" data-bs-toggle="tab" data-bs-target="#testimonial-tab2"
+                                    role="tab" aria-controls="testimonial-tab2" aria-selected="false">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-2.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a id="testimonial-tab3-tab" data-bs-toggle="tab" data-bs-target="#testimonial-tab3"
+                                    role="tab" aria-controls="testimonial-tab3" aria-selected="false">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-3.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a id="testimonial-tab4-tab" data-bs-toggle="tab" data-bs-target="#testimonial-tab4"
+                                    role="tab" aria-controls="testimonial-tab4" aria-selected="false">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-4.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a id="testimonial-tab5-tab" data-bs-toggle="tab" data-bs-target="#testimonial-tab5"
+                                    role="tab" aria-controls="testimonial-tab5" aria-selected="false">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-5.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a id="testimonial-tab6-tab" data-bs-toggle="tab" data-bs-target="#testimonial-tab6"
+                                    role="tab" aria-controls="testimonial-tab6" aria-selected="false">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-6.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a id="testimonial-tab7-tab" data-bs-toggle="tab" data-bs-target="#testimonial-tab7"
+                                    role="tab" aria-controls="testimonial-tab7" aria-selected="false">
+                                    <div class="testimonial-thumbnai">
+                                        <div class="thumb">
+                                            <img src="assets/images/testimonial/testimonial-7.jpg"
+                                                alt="Testimonial Images">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- End Tab Content  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rbt-about-area rbt-section-gapTop overflow-hidden">
+            <div class="about-style-4">
+                <div class="container">
+                    <div class="row row--40 mt_dec--40">
+                        <div class="col-xl-6 col-12 mt--40">
+                            <div class="about-thumb">
+                                <div class="shape-1">
+                                    <img src="assets/images/shape/mf-shape-01.png" alt="Shape">
+                                </div>
+                                <div class="shape-2">
+                                    <img src="assets/images/shape/v-union.png" alt="Shape">
+                                </div>
+
+                                <div class="thumb-1">
+                                    <img src="/img/m-banner-men.jpg" alt="Thumb">
+                                </div>
+                                <h6 class="title">Gründer und leitender Coach</h6>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-12 mt--40">
+                            <div class="content">
+                                <div class="section-title">
+                                    <h6 class="b2 mb--15">
+                                        <span class="theme-gradient"></span>
+                                    </h6>
+                                    <h2 class="title w-600">Leitender Coach
+
+                                        <br> <svg width="40" height="30" viewBox="0 0 40 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2 16.8032C7.91578 16.9588 13.8152 14.5642 17.3757 9.31372C18.7544 7.28056 19.2564 4.87202 19.6736 2.5C20.006 12.1364 30.1484 15.4819 38 16.8227C30.9581 16.3571 23.3519 20.0182 22.65 27.5C18.2438 20.052 10.1583 17.4958 2 16.8032Z"
+                                                fill="white" stroke="url(#paint0_linear_100_66)" stroke-width="4"
+                                                stroke-miterlimit="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_100_66" x1="18.2" y1="2.5" x2="18.2"
+                                                    y2="27.5" gradientUnits="userSpaceOnUse">
+                                                    <stop offset stop-color="#2F57EF" />
+                                                    <stop offset="1" stop-color="#C586EE" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg> der Trader Day Akademie
+                                    </h2>
+                                    <p class="mt--20">Mit jahrelanger Erfahrung und unerschütterlichem Engagement für
+                                        finanzielle Bildung führt Serdar Karaka das Team der Trader Day Akademie. Als
+                                        dein persönlicher Mentor zeigt er dir, wie du sicher und profitabel tradest –
+                                        immer basierend auf den neuesten Techniken und einem tiefen Verständnis der
+                                        Finanzmärkte. Seine Methoden haben schon zahllosen Quereinsteigern den Weg in
+                                        die Welt des erfolgreichen Tradings geebnet.</p>
+                                    <div class="d-flex align-items-center gap-5 flex-wrap">
+                                        <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0);"
+                                            onclick="scrollToForm()">
+                                            <span class="icon-reverse-wrapper">
+                                                <span class="btn-text">Kostenlose, unverbindliche Beratung</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </span>
+                                        </a>
+                                        <div>
+                                            <img src="assets/images/others/signature-01.png" alt="Signature">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rbt-gallery-area rbt-section-gap">
+            <div class="container">
+                <div class="row mb--60">
+                    <div class="col-12">
+                        <div class="section-title text-center">
+                            <h6><span class="theme-gradient">Dein Trading-Coaching-Team</span></h6>
+                            <h2 class="title w-600">Dein exklusives Angebot – Investiere in deine Zukunft!</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 g-sm-4 g-md-5 parent-gallery-container">
+                    <a href="/img/health-gallery-01.jpg" class="child-gallery-single col-lg-6 col-md-6 col-sm-8 col-12">
+                        <div class="rbt-gallery">
+                            <img class="w-100 radius-10" src="/img/health-gallery-01.jpg" alt="Gallery Images">
+                        </div>
+                    </a>
+                    <a href="/img/health-gallery-02.jpg" class="child-gallery-single col-lg-3 col-md-3 col-sm-4 col-6">
+                        <div class="rbt-gallery">
+                            <img class="w-100 radius-10" src="/img/health-gallery-02.jpg" alt="Gallery Images">
+                        </div>
+                    </a>
+                    <a href="/img/health-gallery-03.jpg" class="child-gallery-single col-lg-3 col-md-3 col-sm-4 col-6">
+                        <div class="rbt-gallery">
+                            <img class="w-100 radius-10" src="/img/health-gallery-03.jpg" alt="Gallery Images">
+                        </div>
+                    </a>
+                    <a href="/img/health-gallery-04.jpg" class="child-gallery-single col-lg-3 col-md-3 col-sm-4 col-6">
+                        <div class="rbt-gallery">
+                            <img class="w-100 radius-10" src="/img/health-gallery-04.jpg" alt="Gallery Images">
+                        </div>
+                    </a>
+                    <a href="/img/health-gallery-05.jpg" class="child-gallery-single col-lg-6 col-md-6 col-sm-8 col-12">
+                        <div class="rbt-gallery">
+                            <img class="w-100 radius-10" src="/img/health-gallery-05.jpg" alt="Gallery Images">
+                        </div>
+                    </a>
+                    <a href="/img/health-gallery-06.jpg" class="child-gallery-single col-lg-3 col-md-3 col-sm-4 col-6">
+                        <div class="rbt-gallery">
+                            <img class="w-100 radius-10" src="/img/health-gallery-06.jpg" alt="Gallery Images">
+                        </div>
+                    </a>
+                </div>
+                <div class="row mt--30">
+                    <div class="col-12">
+                        <p>Stell dir vor: Für nur <b>€250</b> erhältst du Zugang zu einem 6-monatigen, intensiv
+                            konzipierten
+                            Ausbildungsprogramm, das dir das ultimative Insiderwissen vermittelt – Techniken, die
+                            normalerweise nur den Reichsten vorbehalten sind. Zusätzlich profitierst du von der
+                            persönlichen Betreuung durch führende Experten und einem Netzwerk, das dir exklusive
+                            Investmentchancen eröffnet.</p>
+                        <p class="text-center"><b>Trader Day – Dein Weg zum exklusiven Investment-Erfolg beginnt
+                                hier!</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Footer aera -->
+        <footer class="rbt-footer footer-style-3 overflow-hidden">
+            <div class="shape-gd-1">
+                <img data-parallax='{"x": 0, "y": 200}' src="assets/images/shape/footer-gd-01.png" alt="Gradient Shape">
+            </div>
+            <div class="container">
+                <div class="footer-5-top">
+                    <div class="text-center section-title-2">
+                        <div>
+                            <img src="assets/images/shape/w-hello.png" alt="Banner Shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <h2 class="big-title">Trader Day</h2>
+            </div>
+            <div class="copyright-area copyright-style-1 pt--20 pb--30">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                            <p class="rbt-link-hover text-center text-lg-start">Copyright © 2025. Alle Rechte
+                                vorbehalten.</p>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                            <ul
+                                class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
+                                <li><a href="#">Impressum</a></li>
+                                <li><a href="#">Datenschutz</a></li>
+                                <li><a href="#">AGB</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <br>
+                    <p>Spezifische Ergebnisse der Teilnehmer der Ausbildung müssen weder typisch sein, noch können diese
+                        Resultate garantiert werden. Wir versprechen niemandem, dass sofort und in jedem Fall das
+                        gleiche Ergebnis erzielt wird, denn das wäre für uns nicht vertretbar und unfair dir gegenüber.
+                        Natürlich sind die Aussagen echt, wir sind sehr stolz darauf, was unsere Mitglieder bereits mit
+                        unserer Ausbildung erreicht haben.</p>
+                    <p class="small-text" style="font-size: 12px;">Diese Website ist kein Teil der Facebook Website oder
+                        Facebook Inc.<br>Außerdem ist diese Seite nicht im Auftrag der Facebook Inc entstanden.</p>
+                    <p>Dies ist KEIN „Schnell und einfach reich werden“ – Programm.</p>
+                </div>
+
+            </div>
+        </footer>
+
+        <!-- End Footer aera -->
+    </main>
+
+    <div class="rbt-progress-parent">
+        <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- JS
+============================================ -->
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <!-- sal.js -->
+    <script src="assets/js/vendor/sal.js"></script>
+    <!-- Dark Mode Switcher -->
+    <script src="assets/js/vendor/js.cookie.js"></script>
+    <script src="assets/js/vendor/jquery.style.switcher.js"></script>
+    <script src="assets/js/vendor/swiper.js"></script>
+    <script src="assets/js/vendor/jquery-appear.js"></script>
+    <script src="assets/js/vendor/odometer.js"></script>
+    <script src="assets/js/vendor/backtotop.js"></script>
+    <script src="assets/js/vendor/isotop.js"></script>
+    <script src="assets/js/vendor/imageloaded.js"></script>
+
+    <script src="assets/js/vendor/wow.js"></script>
+    <script src="assets/js/vendor/waypoint.min.js"></script>
+    <script src="assets/js/vendor/easypie.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="assets/js/vendor/bootstrap-select.min.js"></script>
+    <script src="assets/js/vendor/jquery-ui.js"></script>
+    <script src="assets/js/vendor/magnify-popup.min.js"></script>
+    <script src="assets/js/vendor/paralax-scroll.js"></script>
+    <script src="assets/js/vendor/paralax.min.js"></script>
+    <script src="assets/js/vendor/countdown.js"></script>
+    <script src="assets/js/vendor/plyr.js"></script>
+    <script src="assets/js/vendor/jodit.min.js"></script>
+    <script src="assets/js/vendor/Sortable.min.js"></script>
+
+
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('videoElement');
+
+            video.addEventListener('click', function () {
+                video.muted = !video.muted; // Переключаем звук
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.se-slider', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                slidesPerGroup: 1,
+                autoHeight: true,
+                pagination: {
+                    el: null,
+                },
+
+                navigation: {
+                    nextEl: null,
+                    prevEl: null,
+                },
+
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                loop: true,
+            });
+        });
+    </script>
+    <script src="intlTelInput.min.js"></script>
+    <script src="validation.js"></script>
+
+    <style>
+        .rf-form input::placeholder {
+            color: #9aa0ac;
+        }
+
+        .rf-form .form-control:focus {
+            background-color: #1d2333;
+            color: white;
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .rf-form .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+
+    <script>
+        function scrollToForm() {
+            const formElement = document.getElementById('form');
+            if (formElement) {
+                formElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+
+</html>
