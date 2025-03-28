@@ -30932,13 +30932,17 @@ blockquote.has-text-align-right cite,
 }
 .rbt-banner-22 .inner .content .title {
   font-weight: 600;
-  font-size: 90px;
+  font-size: 55px;
   line-height: 1;
   text-align: center;
   letter-spacing: -0.03em;
   color: var(--color-heading);
   margin-bottom: 0;
 }
+
+.rbt-banner-22 .inner .content .title .theme-gradient {
+    font-size: 66px;
+}       
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .rbt-banner-22 .inner .content .title {
     font-size: 54px;
@@ -30958,6 +30962,9 @@ blockquote.has-text-align-right cite,
   .rbt-banner-22 .inner .content .title {
     font-size: 42px;
   }
+  .rbt-banner-22 .inner .content .title .theme-gradient {
+    font-size: inherit;
+}
 }
 @media only screen and (max-width: 575px) {
   .rbt-banner-22 .inner .content .title {
